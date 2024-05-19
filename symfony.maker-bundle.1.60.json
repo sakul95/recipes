@@ -1,0 +1,37 @@
+{
+    "manifests": {
+        "symfony/maker-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Symfony\\Bundle\\MakerBundle\\MakerBundle": [
+                        "dev"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/maker.yaml": {
+                    "contents": [
+                        "when@dev:",
+                        "    maker:",
+                        "        # tell MakerBundle that all of your classes live in an",
+                        "        # Acme namespace, instead of the default App",
+                        "        # (e.g. Acme\\Entity\\Article, Acme\\Command\\MyCommand, etc)",
+                        "        root_namespace: 'App'",
+                        "",
+                        "        # Tell MakerBundle to make all non-entity classes it generates, \"final\".",
+                        "        generate_final_classes: true",
+                        "",
+                        "        # Tell MakerBundle to make all entities it generates, \"final\".",
+                        "        generate_final_entities: false",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "8c795ff56c822220092e67dc4ff445558f8dd38c"
+        }
+    }
+}
